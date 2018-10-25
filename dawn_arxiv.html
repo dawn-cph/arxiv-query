@@ -1,0 +1,196 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="text/html;charset=UTF-8" http-equiv="Content-type"/>
+  <style>
+
+body {font-family: sans-serif;}
+table.dataTable {width: auto !important; margin: 0 !important;}
+.dataTables_filter, .dataTables_paginate {float: left !important; margin-left:1em}
+td {font-size: 10pt;}
+          </style>
+  <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+  </script>
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js">
+  </script>
+ </head>
+ <body>
+  <script>
+var astropy_sort_num = function(a, b) {
+    var a_num = parseFloat(a);
+    var b_num = parseFloat(b);
+
+    if (isNaN(a_num) && isNaN(b_num))
+        return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+    else if (!isNaN(a_num) && !isNaN(b_num))
+        return ((a_num < b_num) ? -1 : ((a_num > b_num) ? 1 : 0));
+    else
+        return isNaN(a_num) ? -1 : 1;
+}
+
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+    "optionalnum-asc": astropy_sort_num,
+    "optionalnum-desc": function (a,b) { return -astropy_sort_num(a, b); }
+});
+
+$(document).ready(function() {
+   var table = $('#table4504661128').DataTable({
+        order: [],
+        pageLength: 50,
+        lengthMenu: [[10, 25, 50, 100, 500, 1000, -1], [10, 25, 50, 100, 500, 1000, 'All']],
+        pagingType: "full_numbers",
+        columnDefs: [{targets: [], type: "optionalnum"}]
+    });
+
+    $('a.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+
+        // Get the column API object
+        var column = table.column( $(this).attr('data-column') );
+
+        // Toggle the visibility
+        column.visible( ! column.visible() );
+    } );
+    
+            } );  </script>
+
+<div style="border:1px solid black; padding:10px; margin:10px">
+    <b>Toggle column:</b></br> <a class="toggle-vis" data-column="0"> <tt>url</tt> </a> <b>/</b> <a class="toggle-vis" data-column="1"> <tt>date</tt> </a> <b>/</b> <a class="toggle-vis" data-column="2"> <tt>title</tt> </a> <b>/</b> <a class="toggle-vis" data-column="3"> <tt>author</tt> </a> <b>/</b> <a class="toggle-vis" data-column="4"> <tt>comment</tt> </a> <b>/</b> <a class="toggle-vis" data-column="5"> <tt>cat</tt> </a>
+</div>
+            
+              <table class="display compact" id="table4504661128">
+   <thead>
+    <tr>
+     <th>url</th>
+     <th>date</th>
+     <th>title</th>
+     <th>author</th>
+     <th>comment</th>
+     <th>cat</th>
+    </tr>
+   </thead>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.09754v1>1810.09754v1</a></td>
+    <td>2018-10-23 10:07:14</td>
+    <td>FirstLight III: Rest-frame UV-optical spectral energy distributions of
+  simulated galaxies at cosmic dawn</td>
+    <td><b>Ceverino</b>, Klessen, Glover</td>
+    <td>10 pages+appendix , 11 figures. Submitted to MNRAS. The FirstLight
+  database is available at
+  http://www.ita.uni-heidelberg.de/~ceverino/FirstLight/index.html</td>
+    <td>astro-ph.GA</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.08122v1>1810.08122v1</a></td>
+    <td>2018-10-18 15:50:18</td>
+    <td>RELICS: High-Resolution Constraints on the Inner Mass Distribution of
+  the z=0.83 Merging Cluster RXJ0152.7-1357 from strong lensing</td>
+    <td>Acebron, Alon, Zitrin, Mahler, Coe, Sharon, Cibirka, Bradač, Trenti, Umetsu, Andrade-Santos, Avila, Bradley, Carrasco, Cerny, Czakon, Dawson, Frye, Hoag, Huang, Johnson, Jones, Kikuchihara, Lam, Livermore, Lovisari, Mainali, Oesch, Ogaz, Ouchi, Past, Paterno-Mahler, Peterson, Ryan, Salmon, Sendra-Server, Stark, Strait, <b>Toft</b>, Vulcani</td>
+    <td>14 Pages, 7 Figures, 2 Tables submitted to ApJ</td>
+    <td>astro-ph.CO</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.07202v1>1810.07202v1</a></td>
+    <td>2018-10-16 18:00:11</td>
+    <td>KROSS-SAMI: A Direct IFS Comparison of the Tully-Fisher Relation Across
+  8 Gyr Since $z \approx 1$</td>
+    <td>Tiley, Bureau, Cortese, Harrison, Johnson, Stott, Swinbank, Smail, Sobral, Bunker, Glazebrook, Bower, Obreschkow, Bryant, Jarvis, Bland-Hawthorn, <b>Magdis</b>, Medling, Sweet, Tonini, Turner, Sharples, Croom, Goodwin, Konstantopoulos, Lorente, Lawrence, Mould, Owers, Richards</td>
+    <td>Accepted for publication in MNRAS</td>
+    <td>astro-ph.GA</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.06403v1>1810.06403v1</a></td>
+    <td>2018-10-15 14:41:22</td>
+    <td>Evidence for diffuse molecular gas and dust in the hearts of gamma-ray
+  burst host galaxies</td>
+    <td>Bolmer, Ledoux, Wiseman, Cia, Selsing, Schady, Greiner, Savaglio, Burgess, D'Elia, <b>Fynbo</b>, Goldoni, Hartmann, Heintz, Jakobsson, Japelj, Kaper, Tanvir, Vreeswijk, Zafar</td>
+    <td>45 pages, 39 figures</td>
+    <td>astro-ph.GA</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.05380v1>1810.05380v1</a></td>
+    <td>2018-10-12 07:01:34</td>
+    <td>Mass function and dynamical study of the open clusters Berkeley 24 and
+  Czernik 27</td>
+    <td>Bisht, Yadav, Ganesh, Durgapal, Rangwal, <b>Fynbo</b></td>
+    <td>16 pages including 8 tables. 22 figures. Accepted by MNRAS</td>
+    <td>astro-ph.SR</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.05178v1>1810.05178v1</a></td>
+    <td>2018-10-11 18:01:02</td>
+    <td>PAHs as tracers of the molecular gas in star-forming galaxies</td>
+    <td><b>Cortzen</b>, Garrett, <b>Magdis</b>, Rigopoulou, <b>Valentino</b>, Pereira-Santaella, Combes, Alonso-Herrero, <b>Toft</b>, Daddi, Elbaz, Gómez-Guijarro, <b>Stockmann</b>, Huang, Kramer</td>
+    <td>18 pages, 11 figures. Accepted for publication in MNRAS</td>
+    <td>astro-ph.GA</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.04695v1>1810.04695v1</a></td>
+    <td>2018-10-10 18:11:20</td>
+    <td>Dense-gas tracers and carbon isotopes in five 2.5<z<4 lensed dusty star
+  forming galaxies from the SPT SMG sample</td>
+    <td>Bethermin, <b>Greve</b>, Breuck, Vieira, Aravena, Chapman, Chen, Dong, Hayward, Hezaveh, Marrone, Narayanan, Phadke, Reuter, Spilker, Stark, Strandet, Weiss</td>
+    <td>19 pages, 12 figures, 6 tables, Accepted by A&amp;A</td>
+    <td>astro-ph.GA</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.04148v1>1810.04148v1</a></td>
+    <td>2018-10-09 17:28:13</td>
+    <td>Simulations at the Dwarf Scale: From Violent Dwarfs at Cosmic Dawn and
+  Cosmic Noon to Quiet Discs today</td>
+    <td><b>Ceverino</b></td>
+    <td>4 pages, 3 figures, contributed talk at IAU Symposium 344, Dwarf
+  Galaxies: From the Deep Universe to the Present</td>
+    <td>astro-ph.GA</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.02824v1>1810.02824v1</a></td>
+    <td>2018-10-05 18:00:02</td>
+    <td>CLEAR I: Ages and Metallicities of Quiescent Galaxies at $\mathbf{1.0 <
+  z < 1.8}$ Derived from Deep Hubble Space Telescope Grism Data</td>
+    <td>Estrada-Carpenter, Papovich, Momcheva, <b>Brammer</b>, Long, Quadri, Bridge, Dickinson, Ferguson, Finkelstein, Giavalisco, Gosmeyer, Lotz, Salmon, Skelton, Trump, Weiner</td>
+    <td>32 pages, 23 figures, Resubmited to ApJ after revisions in response
+  to referee report</td>
+    <td>astro-ph.GA</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.02819v1>1810.02819v1</a></td>
+    <td>2018-10-05 18:00:00</td>
+    <td>Spatially Extended Low Ionization Emission Regions (LIERs) at $z\sim0.9$</td>
+    <td>Hviding, <b>Brammer</b>, Momcheva, Lundgren, Marchesini, Pirzkal, Ryan, Vang, Wake, Bourque, Martlin, Nedkova</td>
+    <td>11 pages, 1 table, 6 figures, accepted for publication in the
+  Astrophysics Journal (ApJ)</td>
+    <td>astro-ph.GA</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.01596v1>1810.01596v1</a></td>
+    <td>2018-10-03 06:17:07</td>
+    <td>The molecular gas content and fuel efficiency of starbursts at z ~ 1.6
+  with ALMA</td>
+    <td>Silverman, Rujopakarn, Daddi, Renzini, Rodighiero, Liu, Puglisi, Sargent, Mancini, Kartaltepe, Kashino, Koekemoer, Arimoto, Bethermin, Jin, <b>Magdis</b>, Nagao, Onodera, Sanders, <b>Valentino</b></td>
+    <td>16 pages, 8 figures</td>
+    <td>astro-ph.GA</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.01595v1>1810.01595v1</a></td>
+    <td>2018-10-03 06:16:52</td>
+    <td>Concurrent starbursts in molecular gas disks within a pair of colliding
+  galaxies at z = 1.52</td>
+    <td>Silverman, Daddi, Rujopakarn, Renzini, Mancini, Bournaud, Puglisi, Rodighiero, Liu, Sargent, Arimoto, Bethermin, Fensch, Hayward, Kartaltepe, Kashino, Koekemoer, <b>Magdis</b>, Mccracken, Nagao, Sheth, Smolcic, <b>Valentino</b></td>
+    <td>21 pages, 16 figures, accepted to ApJ</td>
+    <td>astro-ph.GA</td>
+   </tr>
+   <tr>
+    <td><a href=http://arxiv.org/abs/1810.00543v1>1810.00543v1</a></td>
+    <td>2018-10-01 06:26:18</td>
+    <td>The rest-frame optical sizes of massive galaxies with suppressed star
+  formation at $z\sim4$</td>
+    <td>Kubo, Tanaka, Yabe, <b>Toft</b>, <b>Stockmann</b>, Gómez-Guijarro</td>
+    <td>15 pages, 11 figures, ApJ accepted</td>
+    <td>astro-ph.GA</td>
+   </tr>
+  </table>
+ </body>
+</html>
+
